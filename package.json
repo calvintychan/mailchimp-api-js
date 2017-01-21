@@ -1,5 +1,5 @@
 {
-  "name": "mailchimp-api",
+  "name": "mailchimp-api-js",
   "version": "0.1.0",
   "description": "A super simple Mailchimp V3 wrapper in JS.",
   "main": "index.js",
