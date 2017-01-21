@@ -1,0 +1,45 @@
+{
+  "name": "mailchimp-api",
+  "version": "0.1.0",
+  "description": "A super simple Mailchimp V3 wrapper in JS.",
+  "main": "index.js",
+  "scripts": {
+    "build": "del ./dist && mkdir dist && babel src -d dist --ignore **/__tests__,**/__mocks__",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calvintychan/mailchimp-api.git"
+  },
+  "keywords": [
+    "mailchimp",
+    "api"
+  ],
+  "author": "Calvin Chan @calvintychan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calvintychan/mailchimp-api/issues"
+  },
+  "homepage": "https://github.com/calvintychan/mailchimp-api#readme",
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "del": "^2.2.2",
+    "del-cli": "^0.2.1",
+    "eslint": "^3.14.0",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "jest": "^18.1.0",
+    "webpack": "^1.14.0"
+  },
+  "dependencies": {
+    "superagent": "^3.3.2"
+  }
+}
