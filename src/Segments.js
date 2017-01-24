@@ -7,6 +7,9 @@ export default class Segments {
     if (!listId) {
       throw Error('List id is missing.');
     }
+    if (!body.name) {
+      throw Error('Segment name is required.');
+    }
     return this.mailchimp.call('POST', `/lists/${listId}/segments`, body);
   }
 
@@ -20,11 +23,11 @@ export default class Segments {
     return this.mailchimp.call('POST', `/lists/${listId}/segments/${segmentId}`, body);
   }
 
-  list(listId, query) {
+  list(listId, query = {}) {
     if (!listId) {
       throw Error('List id is missing.');
     }
-    return this.mailchimp.call('GET' `/lists/${listId}/segments`, query);
+    return this.mailchimp.call('GET', `/lists/${listId}/segments`, query);
   }
 
   read(listId, segmentId, query) {

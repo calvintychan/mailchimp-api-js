@@ -6,10 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['/lists/', '/segments'], ['/lists/', '/segments']);
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Segments = function () {
@@ -24,6 +20,9 @@ var Segments = function () {
     value: function create(listId, body) {
       if (!listId) {
         throw Error('List id is missing.');
+      }
+      if (!body.name) {
+        throw Error('Segment name is required.');
       }
       return this.mailchimp.call('POST', '/lists/' + listId + '/segments', body);
     }
@@ -40,11 +39,13 @@ var Segments = function () {
     }
   }, {
     key: 'list',
-    value: function list(listId, query) {
+    value: function list(listId) {
+      var query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
       if (!listId) {
         throw Error('List id is missing.');
       }
-      return this.mailchimp.call('GET'(_templateObject, listId), query);
+      return this.mailchimp.call('GET', '/lists/' + listId + '/segments', query);
     }
   }, {
     key: 'read',
