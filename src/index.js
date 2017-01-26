@@ -1,10 +1,10 @@
 import request from 'superagent';
 import Campaigns from './Campaigns';
 import Lists from './Lists';
+import Members from './Members';
 import MergeFields from './MergeFields';
 import Segments from './Segments';
 import Webhooks from './Webhooks';
-
 
 export default class Mailchimp {
   constructor(username, apiKey) {
@@ -24,6 +24,7 @@ export default class Mailchimp {
     this.mergeFields = new MergeFields(this);
     this.segments = new Segments(this);
     this.webhooks = new Webhooks(this);
+    this.members = new Members(this);
   }
 
   call(http, method, params) {

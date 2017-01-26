@@ -18,6 +18,10 @@ var _Lists = require('./Lists');
 
 var _Lists2 = _interopRequireDefault(_Lists);
 
+var _Members = require('./Members');
+
+var _Members2 = _interopRequireDefault(_Members);
+
 var _MergeFields = require('./MergeFields');
 
 var _MergeFields2 = _interopRequireDefault(_MergeFields);
@@ -54,6 +58,7 @@ var Mailchimp = function () {
     this.mergeFields = new _MergeFields2.default(this);
     this.segments = new _Segments2.default(this);
     this.webhooks = new _Webhooks2.default(this);
+    this.members = new _Members2.default(this);
   }
 
   _createClass(Mailchimp, [{

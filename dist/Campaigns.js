@@ -24,8 +24,36 @@ var Campaigns = function () {
           throw Error(field + ' param is required.');
         }
       });
-
       return this.mailchimp.call('POST', '/campaigns', body);
+    }
+  }, {
+    key: 'list',
+    value: function list(query) {
+      return this.mailchimp.call('GET', '/campaigns', query);
+    }
+  }, {
+    key: 'read',
+    value: function read(campaignId, query) {
+      if (!campaignId) {
+        throw Error('Campaign id is missing.');
+      }
+      return this.mailchimp.call('GET', '/campaigns/' + campaignId, query);
+    }
+  }, {
+    key: 'update',
+    value: function update(campaignId, body) {
+      if (!campaignId) {
+        throw Error('Campaign id is missing.');
+      }
+      return this.mailchimp.call('PATCH', '/campaigns/' + campaignId, body);
+    }
+  }, {
+    key: 'delete',
+    value: function _delete(campaignId) {
+      if (!campaignId) {
+        throw Error('Campaign id is missing.');
+      }
+      return this.mailchimp.call('DELETE', '/campaigns/' + campaignId);
     }
   }]);
 
