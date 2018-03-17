@@ -8,7 +8,7 @@ export default class Members {
       throw Error('List id is missing.');
     }
 
-    const requiredFields = ['email', 'status'];
+    const requiredFields = ['email_address', 'status'];
     requiredFields.forEach((field) => {
       if (!body[field]) {
         throw Error(`${field} param is required.`);
