@@ -22,7 +22,7 @@ var Members = function () {
         throw Error('List id is missing.');
       }
 
-      var requiredFields = ['email', 'status'];
+      var requiredFields = ['email_address', 'status'];
       requiredFields.forEach(function (field) {
         if (!body[field]) {
           throw Error(field + ' param is required.');
